@@ -1,3 +1,12 @@
+/*
+    This script drops and recreates the Silver Layer tables.
+
+    The Silver Layer stores cleaned and structured data 
+    transformed from the Bronze Layer, ready for use in the Gold Layer.
+
+    Each table includes a load timestamp (dwh_creare_date) for tracking purposes.
+*/
+
 -- Drop and Create silver.crm_cust_info
 IF OBJECT_ID('silver.crm_cust_info', 'U') IS NOT NULL
     DROP TABLE silver.crm_cust_info;
