@@ -1,4 +1,29 @@
+/*
+    This script defines the **Gold Layer** views in a Data Warehouse architecture.
 
+    The Gold Layer represents the final, business-ready presentation layer 
+    used for analytics, dashboards, and reporting.
+
+    It includes:
+    ----------------------------------------------------------------------
+    1. gold.dim_customers:
+       - A cleaned and enriched customer dimension view.
+       - Combines CRM and ERP data to include demographics and personal details.
+       - Handles missing or unknown gender values using fallback logic.
+
+    2. gold.dim_products:
+       - A detailed product dimension view with business categories and status.
+       - Filters out historical (discontinued) products.
+       - Joins product master data with product classification info.
+
+    3. gold.fact_sales:
+       - A sales fact view linking customers and products to transactional data.
+       - Enriched with surrogate keys (customer_key, product_key) from dimensions.
+       - Serves as the core fact table for BI reporting on sales performance.
+
+    These views are not materialized — they are always up to date 
+    with the underlying Silver Layer data.
+*/
 CREATE VIEW gold.dim_customers AS(
 SELECT 
        ROW_NUMBER() OVER(ORDER BY cst_id) AS customer_key,
