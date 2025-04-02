@@ -1,3 +1,14 @@
+/*
+    This script drops and recreates the 'DataWarehouse' database 
+    and initializes its schema structure.
+
+    It includes:
+    - Dropping the database if it exists (with immediate rollback).
+    - Creating a fresh instance of the database.
+    - Creating the three standard schemas: bronze, silver, and gold.
+*/
+
+
 --Drop and recreate the data set 'DataWarehouse'
 USE Master;
 GO
