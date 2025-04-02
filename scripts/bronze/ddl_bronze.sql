@@ -1,3 +1,17 @@
+/*
+    This script is responsible for setting up the **Bronze layer** tables in the data warehouse. 
+    It performs the following actions for each relevant table:
+    
+    1. Checks if the table already exists in the 'bronze' schema.
+    2. If it exists, the table is dropped to allow a fresh creation.
+    3. Recreates the table with the appropriate structure and data types.
+
+    These tables represent raw or minimally processed data extracted from CRM and ERP systems, 
+    and serve as the foundational layer for further transformations into Silver and Gold layers.
+*/
+
+
+
 -- Drop and Create bronze.crm_cust_info
 IF OBJECT_ID('bronze.crm_cust_info', 'U') IS NOT NULL
     DROP TABLE bronze.crm_cust_info;
