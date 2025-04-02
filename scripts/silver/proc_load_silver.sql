@@ -1,3 +1,13 @@
+/*
+    This procedure loads cleaned and transformed data 
+    from the Bronze Layer into the Silver Layer.
+
+    It handles data correction, formatting, and standardization 
+    for use in the Gold Layer.
+
+    Includes logging and error handling.
+*/
+
 CREATE OR ALTER PROCEDURE silver.load_bronze AS 
 BEGIN
     DECLARE @start_time DATETIME,@end_time DATETIME,@Total_start_time DATETIME,@Total_End_Time DATETIME;
